@@ -24,7 +24,7 @@ O sistema permite gerir as operações diárias de um hotel, incluindo:
 | Rodrigo Silva | 240000762 |
 
 **Docente:** Pedro Martins  
-**Ano Letivo:** 2024/2025
+**Ano Letivo:** 2025/2026
 
 ## 🏗️ Arquitetura
 
