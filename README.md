@@ -233,4 +233,4 @@ Este projeto foi desenvolvido para fins académicos no âmbito da UC de Engenhar
 
 ---
 
-**Instituto Politécnico de Santarém** | Escola Superior de Gestão e Tecnologia | 2024/2025
+**Instituto Politécnico de Santarém** | Escola Superior de Gestão e Tecnologia | 2025/2026
