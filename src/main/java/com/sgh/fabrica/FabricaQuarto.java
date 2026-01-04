@@ -14,7 +14,10 @@ import com.sgh.modelo.enums.TipoQuarto;
  * no tipo.
  */
 public class FabricaQuarto {
-    
+
+    // Contador para gerar IDs únicos (resolve o erro do teste)
+    private static long contadorId = 1L;
+
     private static int contadorNumero = 100;
     
     /**
@@ -39,6 +42,7 @@ public class FabricaQuarto {
      */
     public static Quarto criarQuarto(TipoQuarto tipo, String numero, int andar) {
         Quarto quarto = new Quarto();
+        quarto.setId(contadorId++);
         quarto.setNumero(numero);
         quarto.setTipo(tipo);
         quarto.setAndar(andar);
@@ -89,5 +93,6 @@ public class FabricaQuarto {
      */
     public static void reiniciarContador() {
         contadorNumero = 100;
+        contadorId = 1L;// Reinicia também de IDs
     }
 }

@@ -9,6 +9,7 @@ import java.util.Objects;
  * Entidade que representa um quarto do hotel.
  */
 public class Quarto {
+    private Long id;
     private String numero;
     private TipoQuarto tipo;
     private EstadoQuarto estado;
@@ -35,6 +36,16 @@ public class Quarto {
         this.precoBase = precoBase;
         this.capacidade = capacidade;
         this.estado = EstadoQuarto.DISPONIVEL;
+    }
+
+    public Quarto(Long id, String numero, TipoQuarto tipo, int andar, double precoBase) {
+        this.id = id;             // Agora já aceita o ID
+        this.numero = numero;
+        this.tipo = tipo;
+        this.andar = andar;       // E o andar
+        this.precoBase = precoBase;
+        this.estado = EstadoQuarto.DISPONIVEL;
+        this.capacidade = tipo.getCapacidade();
     }
 
     // Getters e Setters
@@ -85,6 +96,10 @@ public class Quarto {
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     /**
      * Verifica se o quarto está disponível para reserva.
