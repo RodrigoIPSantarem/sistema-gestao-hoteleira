@@ -147,6 +147,49 @@ class EstrategiaPrecoTest {
                     "Mês " + mes + " deveria ser Época Média");
             }
         }
+        
+        @Test
+        @DisplayName("Construtor padrão usa data atual")
+        void construtorPadraoUsaDataAtual() {
+            PrecoSazonal estrategia = new PrecoSazonal();
+            assertNotNull(estrategia.getDataReferencia());
+            assertEquals(LocalDate.now(), estrategia.getDataReferencia());
+        }
+        
+        @Test
+        @DisplayName("Deve permitir alterar data de referência")
+        void devePermitirAlterarDataReferencia() {
+            PrecoSazonal estrategia = new PrecoSazonal();
+            LocalDate novaData = LocalDate.of(2025, 7, 1);
+            
+            estrategia.setDataReferencia(novaData);
+            
+            assertEquals(novaData, estrategia.getDataReferencia());
+            assertEquals("Época Alta", estrategia.getEpocaAtual());
+        }
+        
+        @Test
+        @DisplayName("Nome deve incluir época atual")
+        void nomeDeveIncluirEpocaAtual() {
+            PrecoSazonal estrategiaAlta = new PrecoSazonal(LocalDate.of(2025, 8, 1));
+            PrecoSazonal estrategiaBaixa = new PrecoSazonal(LocalDate.of(2025, 4, 1));
+            
+            assertTrue(estrategiaAlta.getNome().contains("Época Alta"));
+            assertTrue(estrategiaBaixa.getNome().contains("Época Baixa"));
+        }
+        
+        @Test
+        @DisplayName("Época baixa em meses específicos")
+        void epocaBaixaEmMesesEspecificos() {
+            int[] mesesBaixa = {3, 4, 5, 10, 11};
+            for (int mes : mesesBaixa) {
+                LocalDate data = LocalDate.of(2025, mes, 15);
+                PrecoSazonal estrategia = new PrecoSazonal(data);
+                assertEquals("Época Baixa", estrategia.getEpocaAtual(),
+                    "Mês " + mes + " deveria ser Época Baixa");
+                assertEquals(1.0, estrategia.getMultiplicador());
+            }
+        }
     }
     
     @Nested
