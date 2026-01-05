@@ -29,7 +29,7 @@ public class SghApplication {
     public static void main(String[] args) {
         System.out.println("╔══════════════════════════════════════════════════════════════╗");
         System.out.println("║     SISTEMA DE GESTÃO HOTELEIRA (SGH) - Demonstração         ║");
-        System.out.println("║     Engenharia de Software - IPS/ESGT - 2024/2025            ║");
+        System.out.println("║     Engenharia de Software - IPS/ESGT - 2025/2026            ║");
         System.out.println("╚══════════════════════════════════════════════════════════════╝");
         System.out.println();
         
